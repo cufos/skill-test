@@ -10,7 +10,7 @@ export default function Users({token}) {
   },[token])
   return (
     <div>
-      {users.map(user => (
+      {users && users.map(user => (
         <li key={user.id}>
           {user.name}
         </li>

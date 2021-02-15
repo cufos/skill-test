@@ -14,7 +14,7 @@ export const login = (username,password) => {
 export const getUsers = (token) => {
   return axios.get(userUrl,{
     headers:{
-      'Authorization': token
+      'Authorization': token.accessToken
     }
   }).then(result => {
     console.log(result)
