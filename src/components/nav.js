@@ -3,12 +3,15 @@ import { Link } from '@reach/router'
 
 export default function Nav() {
   return (
-    <nav>
+    <nav className='navigation'>
+      <li>
+        <Link to='/'>Home</Link>
+      </li>
       <li>
         <Link to='/users'>Users</Link>
       </li>
       <li>
-        <Link to='/users/:id'>Update User</Link>
+        <Link to='/user/:id'>Update User</Link>
       </li>
     </nav>
   )

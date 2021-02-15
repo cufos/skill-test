@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {login} from '../utils/login'
+import {login, refresh} from '../utils/login'
 
 export default function Form({setToken}) {
   const [username,setUsername] = useState('')
@@ -7,14 +7,23 @@ export default function Form({setToken}) {
   function handleSubmit(e){
     e.preventDefault()
     login(username,password).then(data => {
-      console.log(data.data)
-      setToken(data)
+      setToken(data.data.accessToken)
+      setUsername('')
+      setPassword('')
+      localStorage.setItem('bearer', JSON.stringify(data.data.accessToken))
+      localStorage.setItem('refresh-bearer', JSON.stringify(data.data.refreshToken))
     })
+  }
+
+  function handleRefresh(e){
+    e.preventDefault()
+
+    refresh()
   }
 
   return (
     <div>
-      <form onSubmit={(e) => handleSubmit(e)}>
+      <form className='form' onSubmit={(e) => handleSubmit(e)}>
         <label>
           Name
         <input value={username} onChange={(e) => setUsername(e.target.value)} type="text"/>
@@ -28,6 +37,10 @@ export default function Form({setToken}) {
           Submit
         </button>
       </form>
+
+      <button onClick={handleRefresh}>
+        refresh token
+      </button>
     </div>
   )
 }
