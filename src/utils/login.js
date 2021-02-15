@@ -38,7 +38,7 @@ export const getUser = (id,username,password) => {
 }
 
 export const updateUser = (id,username, password) => {
-  return axios.post(`${singleUserUrl}${id}`, { username, password }).then(result => {
+  return axios.put(`http://79.26.34.212:8000/users/${id}`, { username, password }).then(result => {
     return result
   }).catch(err => console.log(err))
 }
