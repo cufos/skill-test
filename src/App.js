@@ -7,7 +7,7 @@ import UpdateUser from './components/updateUser';
 
 function App() {
   const [token, setToken] = useState('')
-  const [id,setId] = useState()
+  const [id, setId] = useState()
   return (
     <div className="App">
       <Router>

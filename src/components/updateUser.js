@@ -3,12 +3,12 @@ import Nav from './nav'
 import { updateUser } from '../utils/login'
 import { navigate } from '@reach/router'
 
-export default function UpdateUser({id}) {
+export default function UpdateUser({ id }) {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const handleSubmit = (e) => {
     e.preventDefault()
-    updateUser(id,username, password).then(data => console.log(data)).catch(err => console.log(err))
+    updateUser(id, username, password).then(data => console.log(data)).catch(err => console.log(err))
 
     navigate('/')
   }

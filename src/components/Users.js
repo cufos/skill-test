@@ -12,7 +12,7 @@ export default function Users({ setId, token }) {
   }, [token])
 
   const handleUpdateUser = (id) => {
-    navigate(`/user/?id=:${id}`)
+    navigate(`/user/${id}`)
   }
 
   return (
